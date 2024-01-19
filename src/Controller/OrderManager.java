@@ -18,25 +18,27 @@ public class OrderManager {
     }
     
     public void showAllOrder() {
+        System.out.println("=========================================================");
         if(listOrder.isEmpty()){
             System.out.println(">>We don't have any orders!!");
         } else {
             for (Order customer : listOrder) {
                 double total = 0;
                 System.out.println("Customer: "+ customer.getCustomer());
-                System.out.println("|  Product  | Quantity |   Price   | Amount");
+                System.out.println("|    Product    | Quantity |    Price    | Amount");
                 for (Map.Entry<Fruit, Integer> entry : customer.getOrder().entrySet()) {
                     Fruit fruit = entry.getKey();
                     int quantity = entry.getValue();
 
                     total += quantity * fruit.getPrice();
-                    System.out.printf("|%-11s| %-10d | %-11.3f | %.3f$ |\n",
+                    System.out.printf("|%-15s| %-8d | %-11.2f | %.2f$ \n",
                          fruit.getName(), quantity, fruit.getPrice(), (quantity * fruit.getPrice()) );
                 }
-                System.out.printf("Total: %.3f$\n", total);
-                System.out.println("*****************************************");
+                System.out.printf("Total: %.2f$\n", total);
+                System.out.println("<<<*****************************************>>>");
             }
         }
+        System.out.println("=========================================================");
     }
     
 }

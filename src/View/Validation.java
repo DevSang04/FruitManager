@@ -59,9 +59,9 @@ public class Validation {
             try {
                 System.out.print(inputMsg);
                 result = Integer.parseInt(sc.nextLine());
-                if(result > 0) { 
+                if(result >= 0) { 
                     return result;
-                } else { System.err.println("Value must be larger than 0"); }
+                } else { System.err.println("Value must be >= 0"); }
             } catch (NumberFormatException e) {
                 System.err.println("Pls enter integer number!! Try again!");
             }
